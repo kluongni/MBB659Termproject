@@ -15,6 +15,7 @@ The steps for this pipeline are:
 
 Heres how to access the git:
 
+Cloning the repository:
 
 
 
