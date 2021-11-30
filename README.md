@@ -36,6 +36,13 @@ SRR10160941 is the SRA accession for a Illumina sequenced carbapenemase carrying
 
 Outputs:
 
+snpEff_genes.txt is a text file containing the gene annotation.
+
+results/annotatedVcf.vcf is a annotated vcf file.
+
+DAG:
+
+file:///home/tasty/Documents/mbb659_termproject/workflow/dag.svg![image](https://user-images.githubusercontent.com/83785437/144007800-3d7c6f56-c51a-42ab-9bd2-e94972bd5d49.png)
 
 
 
