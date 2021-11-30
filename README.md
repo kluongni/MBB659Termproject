@@ -21,9 +21,13 @@ Create folder where you want the repo
 
 Open terminal in that folder
 
-git clone 
+git clone https://github.com/kluongni/MBB659Termproject.git
 
+Then activate the conda environment with:
+  conda env create --file environment.yml
+  conda activate termProject
 
+snakemake --cores 3 "results/annotatedVcf.vcf" will bring you to the end of the pipeline
 
 Inputs:
 
