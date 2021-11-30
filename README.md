@@ -8,6 +8,8 @@ Klebsiella pneumoniae is considered by World Health Organization as a critical p
 
 The steps for this pipeline are:
 
+1. Download reference genome and reads <b>SRA_toolkit</b>
+2. Align reads to the reference genome 
 
 
 Heres how to access the git:
