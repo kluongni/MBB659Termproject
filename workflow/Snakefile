@@ -1,0 +1,70 @@
+
+rule all:
+    input:
+        "snpEff_genes.txt"
+        "results/annotatedVcf.vcf"
+
+rule download_ref:
+    output:
+        genome = "results/GCA_000009885.1_ASM988v1_genomic.fna"
+    shell:
+        """
+        wget -nc https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/009/885/GCA_000009885.1_ASM988v1/GCA_000009885.1_ASM988v1_genomic.fna.gz -P results
+        gzip -d results/GCA_000009885.1_ASM988v1_genomic.fna.gz
+        """
+
+rule download_reads:
+    output:
+        read1 = "results/SRR10160941_1.fastq",
+        read2 = "results/SRR10160941_2.fastq"
+    shell:
+        "fastq-dump SRR10160941 --split-files -O results"
+
+rule samtools_faidx:
+    input:
+        genome = rules.download_ref.output.genome
+    output:
+        samtoolsfaidx = "results/GCA_000009885.1_ASM988v1_genomic.fna.fai"
+    shell:
+        """
+        samtools faidx {input.genome}
+        """
+
+rule bwa_map:
+    input:
+        genome = rules.download_ref.output.genome,
+        read1 = rules.download_reads.output.read1,
+        read2 = rules.download_reads.output.read2
+    output:
+        alignedBAM = "results/alignments.sorted.bam"
+    threads: 3
+    shell:
+        """
+        bwa index {input.genome}
+        bwa mem -t {threads} {input.genome} {input.read1} {input.read2} | samtools view -u -F 4 -q 30 -@ {threads} | samtools sort -O BAM -o {output.alignedBAM} -@ {threads}
+        """
+
+rule bcftools_call:
+    input:
+        genome = rules.download_ref.output.genome,
+        alignedBAM = rules.bwa_map.output.alignedBAM,
+        samtoolsfaidx = rules.samtools_faidx.output.samtoolsfaidx 
+    output:
+        calledVcf = "results/allCalls.vcf.gz"
+    shell:
+    #Call SNPs and short INDELs, then mark low quality sites and sites with the read depth exceeding a limit
+        """
+        bcftools mpileup -Ou -f {input.genome} {input.alignedBAM} | bcftools call -Ou -mv | bcftools filter -e 'QUAL<20 | DP>70' -Oz > Kleb.variants.vcf.gz
+        gunzip -c Kleb.variants.vcf.gz | sed -E 's/^AP006725.1/Chromosome/g' | sed -E 's/^AP006726.1/chromosome/g' | gzip > {output.calledVcf}
+        """
+        
+
+rule snpEff_Annotation:
+    input:
+        genome = rules.download_ref.output.genome,
+        calledVcf = rules.bcftools_call.output.calledVcf
+    output:
+        annotatedVcf = "results/annotatedVcf.vcf",
+        genes = "snpEff_genes.txt"
+    shell:
+        "snpEff ann Klebsiella_pneumoniae_subsp_pneumoniae_ntuh_k2044 {input.calledVcf} > {output.annotatedVcf}"
