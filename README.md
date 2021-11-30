@@ -17,11 +17,18 @@ Heres how to access the git:
 
 Cloning the repository:
 
+Create folder where you want the repo
+
+Open terminal in that folder
+
+git clone 
 
 
 
 Inputs:
 
+GCA_000009885.1_ASM988v1 is a hvkp whole-genome assembly.
+SRR10160941 is the SRA accession for a Illumina sequenced carbapenemase carrying hvkp.
 
 Outputs:
 
