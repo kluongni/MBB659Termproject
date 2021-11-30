@@ -40,9 +40,15 @@ snpEff_genes.txt is a text file containing the gene annotation.
 
 results/annotatedVcf.vcf is a annotated vcf file.
 
+Further analyses of my pipeline showed that contrary to my hypothesis, there were no significant amount of genetic variations in the rmpA gene that I believed would lead to ESBL acquisition.
+file:///tmp/mozilla_tasty0/Untitled.png![image](https://user-images.githubusercontent.com/83785437/144008573-c04a5939-cf96-4e3e-8569-6341368b8465.png)
+
+
 DAG:
 
-(https://user-images.githubusercontent.com/83785437/144007800-3d7c6f56-c51a-42ab-9bd2-e94972bd5d49.png)
+file:///home/tasty/Documents/mbb659_termproject/workflow/dag.svg![image](https://user-images.githubusercontent.com/83785437/144008656-4c6c9095-77c9-416e-8b81-122b0311f250.png)
+
+
 
 
 
