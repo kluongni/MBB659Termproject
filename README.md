@@ -13,7 +13,6 @@ The steps for this pipeline are:
 3. Call variants and manipulate <b>bcftools</b>
 4. Gene annotation <b>snpEff</b>
 
-
 Heres how to access the git:
 
 Cloning the repository:
@@ -32,8 +31,7 @@ Then activate the conda environment with:
   
 Run the Snakemake file with:
 snakemake --cores * "results/annotatedVcf.vcf" will bring you to the end of the pipeline
-*designates amount of cores user would like to dedicate, 
-
+*designates amount of cores user would like to dedicate,  
 
 Inputs:
 
