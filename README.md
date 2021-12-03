@@ -30,7 +30,7 @@ In terminal enter:
 <br>git clone https://github.com/kluongni/MBB659Termproject.git
 
 <br>Change directory to workflow with:
-<br>cd /MBB659Termproject/workflow
+<br>cd ~/MBB659Termproject/workflow
 
 Then activate the conda environment with:
 <br>conda env create --file environment.yml
