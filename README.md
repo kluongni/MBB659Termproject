@@ -1,6 +1,6 @@
 # MBB659Termproject
 
-MBB659 Final Project: Alignment and annotation pipeline for Klebsiella pneumoniae
+MBB659 Final Project: Alignment and annotation pipeline for *Klebsiella pneumoniae*
 
 # Project background
 
