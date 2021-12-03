@@ -29,7 +29,7 @@ Open terminal in that folder
 In terminal enter:
 <br>```git clone https://github.com/kluongni/MBB659Termproject.git```
 
-<br>Change directory to workflow with:
+Change directory to workflow with:
 <br>```cd /MBB659Termproject/workflow```
 
 Assuming the user has conda installed:
