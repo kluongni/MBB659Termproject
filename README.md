@@ -29,6 +29,9 @@ Create folder where you want the repo
 In terminal enter:
 <br>git clone https://github.com/kluongni/MBB659Termproject.git
 
+<br>Change directory to workflow with:
+<br>cd /MBB659Termproject/workflow
+
 Then activate the conda environment with:
 <br>conda env create --file environment.yml
 <br>(press y when prompted)
