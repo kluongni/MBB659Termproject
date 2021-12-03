@@ -4,7 +4,7 @@ MBB659 Final Project: Alignment and annotation pipeline for Klebsiella pneumonia
 
 Project background
 
-Klebsiella pneumoniae is considered by World Health Organization as a critical priority pathogen that urgently needs new antibiotic treatment, as it is highly resistant to most antibiotics and encodes a diverse set of antimicrobial resistance (AMR) genes that can be easily transmitted between different bacteria1,2. Of great concern is K. pneumoniae’s role in trafficking AMR genes on a global scale3. Recently, in addition to the reservoir of AMR genes, extended spectrum beta lactamase (ESBL) genes carried by many of these clonal groups have further hindered the effects of last-line-of-defence antibiotics used in treatment4. As a opportunistic pathogen linked to many nosocomial outbreaks, K. pneumoniae’s fits a niche where there is constant selective pressure from exposure to antibiotics5. The pathogenicity of K. pneumoniae is not only linked to the hospital setting. There are strains of hypervirulent K. pneumoniae (hvkp) that cause community-linked outbreaks6. These are often less resistant compared to their relative AMR strains. These hvkp strains are found with thicker capsules to evade host immune mechanisms. however, there has been a rise in detection of ESBL genes carried in hvkp6,7. I hypothesize that hvkp strains of K. pneumoniae containing ESBL resistance likely have higher mutations and genetic variants in capsule genes, such as rmpA, that contributes to the intake of ESBL on plasmids.
+Klebsiella pneumoniae is considered by World Health Organization as a critical priority pathogen that urgently needs new antibiotic treatment, as it is highly resistant to most antibiotics and encodes a diverse set of antimicrobial resistance (AMR) genes that can be easily transmitted between different </var>bacteria<sup>1,2</sup>. Of great concern is K. pneumoniae’s role in trafficking AMR genes on a global scale3. Recently, in addition to the reservoir of AMR genes, extended spectrum beta lactamase (ESBL) genes carried by many of these clonal groups have further hindered the effects of last-line-of-defence antibiotics used in treatment4. As a opportunistic pathogen linked to many nosocomial outbreaks, K. pneumoniae’s fits a niche where there is constant selective pressure from exposure to antibiotics5. The pathogenicity of K. pneumoniae is not only linked to the hospital setting. There are strains of hypervirulent K. pneumoniae (hvkp) that cause community-linked outbreaks6. These are often less resistant compared to their relative AMR strains. These hvkp strains are found with thicker capsules to evade host immune mechanisms. however, there has been a rise in detection of ESBL genes carried in hvkp6,7. I hypothesize that hvkp strains of K. pneumoniae containing ESBL resistance likely have higher mutations and genetic variants in capsule genes, such as rmpA, that contributes to the intake of ESBL on plasmids.
 
 The steps for this pipeline are:
 
@@ -12,6 +12,12 @@ The steps for this pipeline are:
 2. Align reads to the reference genome <b>bwa mem</b>
 3. Call variants and manipulate <b>bcftools</b>
 4. Gene annotation <b>snpEff</b>
+
+
+
+Directed Acyclic Graph:
+
+![image](https://user-images.githubusercontent.com/83785437/144008656-4c6c9095-77c9-416e-8b81-122b0311f250.png)
 
 Heres how to access the git:
 
@@ -24,10 +30,10 @@ Open terminal in that folder
 In terminal enter:
 git clone https://github.com/kluongni/MBB659Termproject.git
 
-Then activate the conda environment with:
+<p>Then activate the conda environment with:
   conda env create --file environment.yml
   (press y when prompted)
-  conda activate termProject
+  conda activate termProject</p>
   
 Run the Snakemake file with:
 snakemake --cores * "results/annotatedVcf.vcf" will bring you to the end of the pipeline
@@ -44,13 +50,14 @@ snpEff_genes.txt is a text file containing the gene annotation.
 
 annotatedVcf.vcf is a annotated vcf file of all the genes found within the sequence that was aligned.
 
+
+The snpEFF_genes.txt provides valuable information on 
 Further analyses of my pipeline showed that contrary to my hypothesis, there were no significant amount of genetic variations in the rmpA gene that I believed would lead to ESBL acquisition.
-file:///tmp/mozilla_tasty0/Untitled.png![image](https://user-images.githubusercontent.com/83785437/144008573-c04a5939-cf96-4e3e-8569-6341368b8465.png)
 
 
-DAG:
+![image](https://user-images.githubusercontent.com/83785437/144008573-c04a5939-cf96-4e3e-8569-6341368b8465.png)
 
-file:///home/tasty/Documents/mbb659_termproject/workflow/dag.svg![image](https://user-images.githubusercontent.com/83785437/144008656-4c6c9095-77c9-416e-8b81-122b0311f250.png)
+
 
 
 
