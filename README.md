@@ -24,7 +24,7 @@ Cloning the repository:
 
 Create folder where you want the repo
 
-<br>Open terminal in that folder
+Open terminal in that folder
 
 In terminal enter:
 <br>```git clone https://github.com/kluongni/MBB659Termproject.git```
