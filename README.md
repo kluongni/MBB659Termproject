@@ -35,9 +35,10 @@ In terminal enter:
 Then activate the conda environment with:
 <br>conda env create --file environment.yml
 <br>(press y when prompted)
-<br>conda activate termProject</p>
+<br>conda activate termProject
   
-Run the Snakemake file with:
+Run the Snakemake file within the directory:
+
 
 snakemake --cores * "results/annotatedVcf.vcf" will bring you to the end of the pipeline
 <br>\*designates amount of cores user would like to dedicate for the run.  
