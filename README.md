@@ -56,7 +56,7 @@ Run the Snakemake file within the directory:
 | annotatedVcf.vcf is a annotated vcf file of all the genes found within the sequence that was aligned. |
 
 
-|The snpEFF_genes.txt provides valuable information on the genes returned from the annotation. The upstream and downstream genetic variants can be parsed from the file to provide further analyses. On the right, the graph shows that contrary to my hypothesis, there were no significant amount of genetic variations in the rmpA gene that I believed would lead to carbapenemase acquisition. | ![image](https://user-images.githubusercontent.com/83785437/144008573-c04a5939-cf96-4e3e-8569-6341368b8465.png) |
+|The snpEFF_genes.txt provides valuable information on the genes returned from the annotation. The upstream and downstream genetic variants can be parsed from the file to provide further analyses. On the right, the graph shows that contrary to my hypothesis, there were no significant amount of genetic variations that had a detrimental effect in the rmpA gene that I believed would lead to carbapenemase acquisition. | ![image](https://user-images.githubusercontent.com/83785437/144008573-c04a5939-cf96-4e3e-8569-6341368b8465.png) |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 
 
