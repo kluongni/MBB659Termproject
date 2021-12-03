@@ -2,7 +2,7 @@
 rule all:
     input:
         "snpEff_genes.txt"
-        "results/annotatedVcf.vcf"
+        "results/annotated_Vcf.vcf"
 
 rule download_ref:
     output:
@@ -37,7 +37,7 @@ rule bwa_map:
         read2 = rules.download_reads.output.read2
     output:
         alignedBAM = "results/alignments.sorted.bam"
-    threads: 3
+    threads: 4
     shell:
         """
         bwa index {input.genome}
@@ -55,7 +55,7 @@ rule bcftools_call:
     #Call SNPs and short INDELs, then mark low quality sites and sites with the read depth exceeding a limit
         """
         bcftools mpileup -Ou -f {input.genome} {input.alignedBAM} | bcftools call -Ou -mv | bcftools filter -e 'QUAL<20 | DP>70' -Oz > Kleb.variants.vcf.gz
-        gunzip -c Kleb.variants.vcf.gz | sed -E 's/^AP006725.1/Chromosome/g' | sed -E 's/^AP006726.1/chromosome/g' | gzip > {output.calledVcf}
+        gzip -d -c Kleb.variants.vcf.gz | sed -E 's/^AP006725.1/Chromosome/g' | sed -E 's/^AP006726.1/chromosome/g' | gzip > {output.calledVcf}
         """
         
 
@@ -64,7 +64,7 @@ rule snpEff_Annotation:
         genome = rules.download_ref.output.genome,
         calledVcf = rules.bcftools_call.output.calledVcf
     output:
-        annotatedVcf = "results/annotatedVcf.vcf",
+        annotatedVcf = "results/annotated_Vcf.vcf",
         genes = "snpEff_genes.txt"
     shell:
         "snpEff ann Klebsiella_pneumoniae_subsp_pneumoniae_ntuh_k2044 {input.calledVcf} > {output.annotatedVcf}"
