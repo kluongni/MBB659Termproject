@@ -3,7 +3,7 @@
 import csv
 
 
-stupidlist = []
+
 wantedlist = []
 counter = 0
 header = ""
@@ -18,9 +18,6 @@ with open('snpEff_genes.txt', newline='') as reader:
                 wantedlist.append(temp)
         counter += 1
 
-        #print(row)
-        #stupidlist.append(row.split())
-    #print(stupidlist[1])
     wantedlist.insert(0,header)
     print(wantedlist)
 
