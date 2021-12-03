@@ -33,6 +33,7 @@ In terminal enter:
 <br>```cd /MBB659Termproject/workflow```
 
 Assuming the user has conda installed:
+https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 Activate the conda environment with:
 <br>```conda env create --file environment.yml```
