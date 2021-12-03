@@ -13,6 +13,7 @@ The steps for this pipeline are:
 3. Call variants and manipulate <b>bcftools</b>
 4. Gene annotation <b>snpEff</b>
 
+
 Heres how to access the git:
 
 Cloning the repository:
@@ -21,24 +22,29 @@ Create folder where you want the repo
 
 Open terminal in that folder
 
+In terminal enter:
 git clone https://github.com/kluongni/MBB659Termproject.git
 
 Then activate the conda environment with:
   conda env create --file environment.yml
+  (press y when prompted)
   conda activate termProject
+  
+Run the Snakemake file with:
+snakemake --cores * "results/annotatedVcf.vcf" will bring you to the end of the pipeline
+*designates amount of cores user would like to dedicate, 
 
-snakemake --cores 3 "results/annotatedVcf.vcf" will bring you to the end of the pipeline
 
 Inputs:
 
-GCA_000009885.1_ASM988v1 is a hvkp whole-genome assembly.
-SRR10160941 is the SRA accession for a Illumina sequenced carbapenemase carrying hvkp.
+GCA_000009885.1_ASM988v1 is a hvkp whole-genome assembly used as a reference genome for alignment.
+SRR10160941 is the SRA accession for a Illumina High-throughput sequenced carbapenemase carrying hvkp.
 
 Outputs:
 
 snpEff_genes.txt is a text file containing the gene annotation.
 
-results/annotatedVcf.vcf is a annotated vcf file.
+annotatedVcf.vcf is a annotated vcf file of all the genes found within the sequence that was aligned.
 
 Further analyses of my pipeline showed that contrary to my hypothesis, there were no significant amount of genetic variations in the rmpA gene that I believed would lead to ESBL acquisition.
 file:///tmp/mozilla_tasty0/Untitled.png![image](https://user-images.githubusercontent.com/83785437/144008573-c04a5939-cf96-4e3e-8569-6341368b8465.png)
