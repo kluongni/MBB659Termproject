@@ -27,7 +27,7 @@ Create folder where you want the repo
 <br>Open terminal in that folder
 
 In terminal enter:
-<br>git clone https://github.com/kluongni/MBB659Termproject.git
+<br>```git clone https://github.com/kluongni/MBB659Termproject.git```
 
 <br>Change directory to workflow with:
 <br>```cd /MBB659Termproject/workflow```
